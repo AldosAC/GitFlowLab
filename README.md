@@ -99,7 +99,9 @@ Date:   Fri Oct 22 11:28:16 2021 -0700
   Initial commit
 ```
 3. The string to the right of the word "commit" is the hash for the commit.  We can use this to checkout that commit, effectively moving backwards in our commit history temporarily.
-4. Type `
+4. Type `git checkout 6638d3d11ad694ab2888c24d00986b931d958f79`.  Note that you may need to commit changes to your files before invoking this command otherwise your changes may be lost.
+5. This will bring us back to the commit which added the initial files for the repo.  We're currently in a "detached head" state, so we won't be able to make permanent changes from our current state without creating a new branch.  However, we can check to see if our sensitive file is tracked.
+6. 
 
 **Create a new branch from before the file was committed**
 - If the file was initially committed as a part of the work in your current branch, this may be an option.  Note that the viability of this depends heavily on how recently the commit occurred and how much work you'll lose in the process.
