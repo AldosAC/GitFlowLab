@@ -1,4 +1,2 @@
-## Specific Files
-SuperSecretInfo.pem
-
-## Utilizing wildcards
+junk.txt
+*.pem
