@@ -87,22 +87,14 @@ There we go!  We should no longer be tracking the changes to out SuperSecretInfo
 
 #### Untracking and ignoring sensitive files.
 
-Now, what do we do if we've accidentally committed a file containing sensitive information?  The answer to that depends on the circumstances.  We have a couple of routes we could take.  One of the first things we want to do is identify when the commit occurred that added the sensitive file.  To do this...
-
-1. Type `git log` in your terminal.
-2. This displays our commit history with a hash for each commit.  It should have entries like...
-```
-commit a5e6b65a49ef332df489affc1874964573165742 (origin/main, origin/HEAD)
-Author: Joel Carpenter <66389984+AldosAC@users.noreply.github.com>
-Date:   Fri Oct 22 11:28:16 2021 -0700
-
-  Initial commit
-```
-3. The string to the right of the word "commit" is the hash for the commit.  We can use this to checkout that commit, effectively moving backwards in our commit history temporarily.
-4. Type `git checkout 6638d3d11ad694ab2888c24d00986b931d958f79`.  Note that you may need to commit changes to your files before invoking this command otherwise your changes may be lost.
-5. This will bring us back to the commit which added the initial files for the repo.  We're currently in a "detached head" state, so we won't be able to make permanent changes from our current state without creating a new branch.  However, we can check to see if our sensitive file is tracked.
-6. 
+Now, what do we do if we've accidentally committed a file containing sensitive information?  The answer to that depends on the circumstances.  We have a couple of routes we could take.  One of the first things we want to do is identify when the commit occurred that added the sensitive file.  You can do this by using the commit hashes in your `git log` to move through your repo and find where the file was initially committed.  Once you've got that information, you can make a decision about how to proceed.
 
 **Create a new branch from before the file was committed**
 - If the file was initially committed as a part of the work in your current branch, this may be an option.  Note that the viability of this depends heavily on how recently the commit occurred and how much work you'll lose in the process.
-- You can use `git log` and `git checkout <commit hash>` to navigate through your commit history and find
+- You can use `git log` and `git checkout <commit hash>` to navigate through your commit history and create a new branch based out of the commit right before your sensitive file was committed.  This can help reduce the amount of work you need to recreate.
+- This option's really only a good choice if the commit is recent.
+
+**Rewrite your commit history**
+- There can be serious consequences if you rewrite your commit history.  This is especially true if you're working out of a large repo or you've got multiple contributors.  Make sure you fully understand what's going to happen before you pursue this option.
+- You can utilize `git filter-branch`, more info can be found [in the documentation](https://git-scm.com/docs/git-filter-branch#_exampleshttps://git-scm.com/docs/git-filter-branch#_examples)
+- You can also utilize third party plugins such as git-filter-repo.  This is generally recommended over filter-branch but requires additional installation.  More info [here](https://github.com/newren/git-filter-repo/)
