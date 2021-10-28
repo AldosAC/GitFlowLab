@@ -32,35 +32,38 @@ Command: `git branch -D <branch>` Deletes local branch
 Command: `git branch <branch>` Creates a new branch based on your current branch
 
 Branches are an important concept for organizing our work.  They're a way for us to perform work in an isolated space where we can make changes without impacting other work.  If we imagine our commit history for our main branch as a straight line...
-
+```
 Initial Commit                                Head
        o ----------- o ---------- o ----------- o
-
+```
 Now imagine that you want to make a change.  Let's say you want to add a new component.  Let's say we create a new branch called "new-component" based out of our main branch and we commit a couple of changes to our new-component branch.
+```
                        new-component                     Head
                               ----- o --------- o -------- o
 main                        /     
        o ----------- o ----
-
+```
 Now let's say we ran into an issue with our new-component and the code in that branch isn't working.  Another developer could still come in and push a commit to our main branch without any issue.
+```
                        new-component                  
                               ----- o --------- o -------- o
 main                        /     Head
        o ----------- o ------------ o
-
+```
 Because our main and new-component branches advance independently, the commits made to new-component and the commits made to main have no impact on eachother.  Even though our code is broken in the new-component branch, the code in main functions just fine.
 
 Now we can consider two scenarios.  Let's say we realized what we were trying to do in new-component wasn't going to work, so we want to revert those changes.  All we have to do is delete the new-component branch.
-
+```
 main                                                        Head
        o ----------- o ---------- o ----------- o------------ o 
-
+```
 Alternatively, let's say we managed to get new-component working and we wanted to bring those changes over to main, we can merge the two branches.
+```
                        new-component                   
                               ----- o --------- o -------- o --
 main                        /                                   \  Head
        o ----------- o ------------ o ------------------------------ o
-
+```
 Now the changes that were made in our main branch and the changes in our new-component branches have been merged together and co-exist in our main branch.
 
 In a repo that's being worked on with multiple engineers, the process of merging branches usually occurs via a pull request made in whatever version control system your team is doing.  This gives other team members an opportunity to review your changes before they're merged in.
