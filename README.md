@@ -3,8 +3,71 @@ A simple lab to help people get comfortable with the basic Git workflow.
 
 ## Getting Started
 
+## Git Commands and What They Actually Do
+To start off, why don't we go over the basic git commands and what they actually do.  We're only really going to cover the basic usage of the commands, but be aware there are typically additional flags and options which expand on these.
 
-## Git Ignore
+#### Git Clone
+Command: `git clone <url>`
+
+Git clone retrieves the repo at the target URL and copies the contents into a directory matching the repo name in your current directory.  In addition to that, it creates an "origin" remote which points back to the url used to create the clone.
+
+#### Git Branch
+Command: `git branch` - Lists local branches
+Command: `git branch -D <branch>` Deletes local branch
+Command: `git branch <branch>` Creates a new branch based on your current branch
+
+Branches are an important concept for organizing our work.  They're a way for us to perform work in an isolated space where we can make changes without impacting other work.  If we imagine our commit history for our main branch as a straight line...
+
+Initial Commit                                Head
+       o ----------- o ---------- o ----------- o
+
+Now imagine that you want to make a change.  Let's say you want to add a new component.  Let's say we create a new branch called "new-component" based out of our main branch and we commit a couple of changes to our new-component branch.
+                       new-component                     Head
+                              ----- o --------- o -------- o
+main                        /     
+       o ----------- o ----
+
+Now let's say we ran into an issue with our new-component and the code in that branch isn't working.  Another developer could still come in and push a commit to our main branch without any issue.
+                       new-component                  
+                              ----- o --------- o -------- o
+main                        /     Head
+       o ----------- o ------------ o
+
+Because our main and new-component branches advance independently, the commits made to new-component and the commits made to main have no impact on eachother.  Even though our code is broken in the new-component branch, the code in main functions just fine.
+
+Now we can consider two scenarios.  Let's say we realized what we were trying to do in new-component wasn't going to work, so we want to revert those changes.  All we have to do is delete the new-component branch.
+
+main                                                        Head
+       o ----------- o ---------- o ----------- o------------ o 
+
+Alternatively, let's say we managed to get new-component working and we wanted to bring those changes over to main, we can merge the two branches.
+                       new-component                   
+                              ----- o --------- o -------- o --
+main                        /                                   \  Head
+       o ----------- o ------------ o ------------------------------ o
+
+Now the changes that were made in our main branch and the changes in our new-component branches have been merged together and co-exist in our main branch.
+
+In a repo that's being worked on with multiple engineers, the process of merging branches usually occurs via a pull request made in whatever version control system your team is doing.  This gives other team members an opportunity to review your changes before they're merged in.
+
+How you'll utilize branches is likely going to depend on your team's workflow.  It's always a good idea to synch up with your team about when you should be creating new branches and how you'll interact with them so that everyone's on the same page.
+
+Generally speaking though, most (if not all) of your changes should be occurring on a branch.  That way your changes are isolated, can be reviewed via a pull request, and are logically separated by specific changes which you can reject or approve individually.
+
+#### Git Checkout
+Command: `git checkout <branch>` - Switches to the target branch, updating your working files to match what's recorded in that branch.
+Command: `git checkout -b <branch>` - Creates a new branch using the branch name you input and switches to it.  The new branch is based on the branch you were on when you performed the command.
+
+Git checkout is a fairly simple command.  It's how we'll move between branches.  We can also use the '-b' flag to create a new branch and switch to it all in a single command.  One thing to note is that if you have uncommitted changes to your working files when you change branches you can bring those changes along and commit them in the new branch.  This does require that both branches have the same version of those files prior to using git checkout, otherwise you'll get an error indicating you need to commit the changes or revert those files before using git checkout.
+
+#### Git Pull
+Command: `git pull <remote> <branch>`
+
+Pulls the contents of the target branch at the target remote into your current branch and attempts to merge them.
+
+The most important aspect to remember is that git will attempt to merge the branch you pull into your current branch.  If you're just pulling the latest changes to your current branch, that's a pretty painless process.  However, if you're pulling another branch into your current branch, you may have merge conflicts which will need to be addressed before the merge is completed.  When this happens, the updated files will be staged to be committed, but the merge commit won't complete automatically.  The output from your pull will indicate which files have a merge conflict.  Once you've resolved those merge conflicts, those files should appear as unstaged changes.  Stage the files and then commit your changes and you should be all set.
+
+## Git Ignore File
 Sometimes we're working with files that contain sensitive information.  We also often use tools which create local config files.  Maybe we've got a bunch of large modules that were installed by something like NPM?
 
 Inevitably, we're going to run into a case where we have files that we don't want added to our repo.  That's where the .gitignore file comes in!
