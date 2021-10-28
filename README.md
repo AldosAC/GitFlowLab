@@ -33,8 +33,8 @@ Command: `git branch <branch>` Creates a new branch based on your current branch
 
 Branches are an important concept for organizing our work.  They're a way for us to perform work in an isolated space where we can make changes without impacting other work.  If we imagine our commit history for our main branch as a straight line...
 ```
-Initial Commit                    Head
-       o ----------- o ------------ o
+Initial Commit     Head
+       o ----------- o
 ```
 Now imagine that you want to make a change.  Let's say you want to add a new component.  Let's say we create a new branch called "new-component" based out of our main branch and we commit a couple of changes to our new-component branch.
 ```
