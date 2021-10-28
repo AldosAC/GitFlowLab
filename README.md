@@ -14,9 +14,9 @@ Git clone retrieves the repo at the target URL and copies the contents into a di
 #### Git Remote
 Command: `git remote` - Lists remotes
 
-Command: `git remote add <repo url>` - Adds a new remote pointing to the <remote url>
+Command: `git remote add <repo url>` - Adds a new remote pointing to the \<remote url\>
 
-Command: `git remote rename <old> <new>` - Renames the <old> remote to <new>
+Command: `git remote rename <old> <new>` - Renames the \<old\> remote to \<new\>
 
 command: `git remote remove <remote>` - Removes a remote
 
@@ -66,7 +66,7 @@ main                        /                                   \  Head
 ```
 Now the changes that were made in our main branch and the changes in our new-component branches have been merged together and co-exist in our main branch.
 
-In a repo that's being worked on with multiple engineers, the process of merging branches usually occurs via a pull request made in whatever version control system your team is doing.  This gives other team members an opportunity to review your changes before they're merged in.
+In a repo that's being worked on with multiple engineers, the process of merging branches usually occurs via a pull request made in whatever version control system your team is using.  This gives other team members an opportunity to review your changes before they're merged.
 
 How you'll utilize branches is likely going to depend on your team's workflow.  It's always a good idea to synch up with your team about when you should be creating new branches and how you'll interact with them so that everyone's on the same page.
 
