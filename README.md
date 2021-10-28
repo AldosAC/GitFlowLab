@@ -11,9 +11,24 @@ Command: `git clone <url>`
 
 Git clone retrieves the repo at the target URL and copies the contents into a directory matching the repo name in your current directory.  In addition to that, it creates an "origin" remote which points back to the url used to create the clone.
 
+#### Git Remote
+Command: `git remote` - Lists remotes
+
+Command: `git remote add <repo url>` - Adds a new remote pointing to the <remote url>
+
+Command: `git remote rename <old> <new>` - Renames the <old> remote to <new>
+
+command: `git remote remove <remote>` - Removes a remote
+
+The most common use for our remotes are going to be pointing back to the origin of our repo.  For example, if you clone a repo off of GitHub, then the "origin" remote should point back to the GitHub repo you cloned it from.
+
+You may also use multiple remotes if you the repo is being stored in multiple locations.  One possible scenario would be if there are multiple forks of the repo you want to push to.  If you and a team mate had both created a fork of a repo and you wanted to push your changes to their fork, then you would create a new remote pointing to their repo.
+
 #### Git Branch
 Command: `git branch` - Lists local branches
+
 Command: `git branch -D <branch>` Deletes local branch
+
 Command: `git branch <branch>` Creates a new branch based on your current branch
 
 Branches are an important concept for organizing our work.  They're a way for us to perform work in an isolated space where we can make changes without impacting other work.  If we imagine our commit history for our main branch as a straight line...
@@ -56,6 +71,7 @@ Generally speaking though, most (if not all) of your changes should be occurring
 
 #### Git Checkout
 Command: `git checkout <branch>` - Switches to the target branch, updating your working files to match what's recorded in that branch.
+
 Command: `git checkout -b <branch>` - Creates a new branch using the branch name you input and switches to it.  The new branch is based on the branch you were on when you performed the command.
 
 Git checkout is a fairly simple command.  It's how we'll move between branches.  We can also use the '-b' flag to create a new branch and switch to it all in a single command.  One thing to note is that if you have uncommitted changes to your working files when you change branches you can bring those changes along and commit them in the new branch.  This does require that both branches have the same version of those files prior to using git checkout, otherwise you'll get an error indicating you need to commit the changes or revert those files before using git checkout.
@@ -66,6 +82,13 @@ Command: `git pull <remote> <branch>`
 Pulls the contents of the target branch at the target remote into your current branch and attempts to merge them.
 
 The most important aspect to remember is that git will attempt to merge the branch you pull into your current branch.  If you're just pulling the latest changes to your current branch, that's a pretty painless process.  However, if you're pulling another branch into your current branch, you may have merge conflicts which will need to be addressed before the merge is completed.  When this happens, the updated files will be staged to be committed, but the merge commit won't complete automatically.  The output from your pull will indicate which files have a merge conflict.  Once you've resolved those merge conflicts, those files should appear as unstaged changes.  Stage the files and then commit your changes and you should be all set.
+
+#### Git Push
+Command: `git push <remote> <branch>`
+
+Updates the remote with the commits from the target branch.  Note that the target branch is also the branch that will be updated on the remote.  So `git push origin new-feature` would update the "new-feature" branch on the remote with the changes from your local "new-feature" branch.
+
+If the remote contains work that you do not have, such as if someone else had pushed a commit to that branch which you haven't pulled down yet, the push will fail.  You'll need to pull the changes down, merge them with your own and then push your work up to the remote again.
 
 ## Git Ignore File
 Sometimes we're working with files that contain sensitive information.  We also often use tools which create local config files.  Maybe we've got a bunch of large modules that were installed by something like NPM?
