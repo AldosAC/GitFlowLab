@@ -1,7 +1,15 @@
 # GitFlowLab
 A simple lab to help people get comfortable with the basic Git workflow.
 
+This is still a work in progress, below is my TODO list:
+#TODO - Add instructions for forking repo
+#TODO - Split Git Ignore section off into a module
+#TODO - Add section on merging
+#TODO - Add module demoing how to revert a commit
+#TODO - Add section on standard workflow with links to Gitflow/Trunk workflows
+
 ## Getting Started
+#TODO - Add instructions for forking repo
 
 ## Git Commands and What They Actually Do
 To start off, why don't we go over the basic git commands and what they actually do.  We're only really going to cover the basic usage of the commands, but be aware there are typically additional flags and options which expand on these.
@@ -93,6 +101,13 @@ Updates the remote with the commits from the target branch.  Note that the targe
 
 If the remote contains work that you do not have, such as if someone else had pushed a commit to that branch which you haven't pulled down yet, the push will fail.  You'll need to pull the changes down, merge them with your own and then push your work up to the remote again.
 
+#TODO - Add section on merging
+
+#TODO - Add section on standard workflow with links to Gitflow/Trunk workflows
+
+#TODO - Add module demoing reverting a commit
+
+#TODO - Split Git Ignore section off into a module
 ## Git Ignore File
 Sometimes we're working with files that contain sensitive information.  We also often use tools which create local config files.  Maybe we've got a bunch of large modules that were installed by something like NPM?
 
