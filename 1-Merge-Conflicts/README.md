@@ -1,0 +1,2 @@
+# Merge Conflicts Module
+In this module we'll intentionally create some merge conflicts and then work through resolving them.  This will be a good opportunity to get a little more comfortable with merging branches.
