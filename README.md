@@ -114,7 +114,7 @@ Command: `git merge <source branch>`
 
 Merges the contents of the source branch into your current branch.  Make sure you read the logging as the command executes as it will note any files which had merge conflicts.  If there is a merge conflict, git will stage all of the files to complete the merge commit, but won't complete the commit.  Modify the files containing conflicts so that the conflicts are resolved, then save them and stage them to be committed.  Once all merge conflicts are resolved and everything is staged, complete the commit to finalize the merge.
 
-If you need to 
+If you need to cancel the merge while you're attempting to resolve merge conflicts, you can use the command: 
 
 #TODO - Add section on merging
 
