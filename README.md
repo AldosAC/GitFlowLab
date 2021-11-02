@@ -95,6 +95,13 @@ Command: `git checkout -b <branch>` - Creates a new branch using the branch name
 
 Git checkout is a fairly simple command.  It's how we'll move between branches.  We can also use the '-b' flag to create a new branch and switch to it all in a single command.  One thing to note is that if you have uncommitted changes to your working files when you change branches you can bring those changes along and commit them in the new branch.  This does require that both branches have the same version of those files prior to using git checkout, otherwise you'll get an error indicating you need to commit the changes or revert those files before using git checkout.
 
+#### Git Push
+Command: `git push <remote> <branch>`
+
+Updates the remote with the commits from the target branch.  Note that the target branch is also the branch that will be updated on the remote.  So `git push origin new-feature` would update the "new-feature" branch on the remote with the changes from your local "new-feature" branch.
+
+If the remote contains work that you do not have, such as if someone else had pushed a commit to that branch which you haven't pulled down yet, the push will fail.  You'll need to pull the changes down, merge them with your own and then push your work up to the remote again.
+
 #### Git Pull
 Command: `git pull <remote> <branch>`
 
@@ -102,12 +109,12 @@ Pulls the contents of the target branch at the target remote into your current b
 
 The most important aspect to remember is that git will attempt to merge the branch you pull into your current branch.  If you're just pulling the latest changes to your current branch, that's a pretty painless process.  However, if you're pulling another branch into your current branch, you may have merge conflicts which will need to be addressed before the merge is completed.  When this happens, the updated files will be staged to be committed, but the merge commit won't complete automatically.  The output from your pull will indicate which files have a merge conflict.  Once you've resolved those merge conflicts, those files should appear as unstaged changes.  Stage the files and then commit your changes and you should be all set.
 
-#### Git Push
-Command: `git push <remote> <branch>`
+#### Git Merge
+Command: `git merge <source branch>`
 
-Updates the remote with the commits from the target branch.  Note that the target branch is also the branch that will be updated on the remote.  So `git push origin new-feature` would update the "new-feature" branch on the remote with the changes from your local "new-feature" branch.
+Merges the contents of the source branch into your current branch.  Make sure you read the logging as the command executes as it will note any files which had merge conflicts.  If there is a merge conflict, git will stage all of the files to complete the merge commit, but won't complete the commit.  Modify the files containing conflicts so that the conflicts are resolved, then save them and stage them to be committed.  Once all merge conflicts are resolved and everything is staged, complete the commit to finalize the merge.
 
-If the remote contains work that you do not have, such as if someone else had pushed a commit to that branch which you haven't pulled down yet, the push will fail.  You'll need to pull the changes down, merge them with your own and then push your work up to the remote again.
+If you need to 
 
 #TODO - Add section on merging
 
