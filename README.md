@@ -2,10 +2,10 @@
 A simple lab to help people get comfortable with the basic Git workflow.
 
 This is still a work in progress, below is my TODO list:
-#TODO - Split Git Ignore section off into a module
-#TODO - Add section on merging
-#TODO - Add module demoing how to revert a commit
-#TODO - Add section on standard workflow with links to Gitflow/Trunk workflows
+- #TODO - Split Git Ignore section off into a module
+- #TODO - Add section on merging
+- #TODO - Add module demoing how to revert a commit
+- #TODO - Add section on standard workflow with links to Gitflow/Trunk workflows
 
 ## Getting Started
 Before we dive in, let's fork this repo so you've got a safe place to experiment with Git.
@@ -18,6 +18,8 @@ To do so:
 2. Open your terminal and navigate to whatever director you want to place the repo in.
 3. Type `git clone <url>` into your terminal, replacing /<url/> with the link you copied in step 1.
 4. cd into your fancy new repo!
+
+---
 
 ## Git Commands and What They Actually Do
 To start off, why don't we go over the basic git commands and what they actually do.  We're only really going to cover the basic usage of the commands, but be aware there are typically additional flags and options which expand on these.
@@ -114,15 +116,22 @@ Command: `git merge <source branch>`
 
 Merges the contents of the source branch into your current branch.  Make sure you read the logging as the command executes as it will note any files which had merge conflicts.  If there is a merge conflict, git will stage all of the files to complete the merge commit, but won't complete the commit.  Modify the files containing conflicts so that the conflicts are resolved, then save them and stage them to be committed.  Once all merge conflicts are resolved and everything is staged, complete the commit to finalize the merge.
 
-If you need to cancel the merge while you're attempting to resolve merge conflicts, you can use the command: 
+If you need to cancel the merge while you're attempting to resolve merge conflicts, you can use the command: `git merge --abort`
 
-#TODO - Add section on merging
+---
+
+## Resolving Merge Conflicts
+
+
 
 #TODO - Add section on standard workflow with links to Gitflow/Trunk workflows
 
 #TODO - Add module demoing reverting a commit
 
 #TODO - Split Git Ignore section off into a module
+
+---
+
 ## Git Ignore File
 Sometimes we're working with files that contain sensitive information.  We also often use tools which create local config files.  Maybe we've got a bunch of large modules that were installed by something like NPM?
 
