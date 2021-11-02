@@ -1,4 +1,0 @@
-Welcome!  This is the document we're going to be modifying in order to practice our Git skills.
-
-Feel free to change anything you like here!  Refer back to the README if you need some
-additional prompting.
