@@ -129,7 +129,7 @@ Assuming we wanted to merge a branch named `feature` into `main`, we would:
 1. `git checkout main`
 2. `git pull main` to ensure our local version of main is up to date
 3. `git checkout feature`
-4. `git pull origin feature` to make sure your local version of the pr branch is up to date.
+4. `git pull origin feature` to make sure your local version of our feature branch is up to date.
 5. `git merge main` to attempt to merge main into our feature branch.
 6. Examine the output from git merge and note which files have merge conflicts.
 7. Open your text editor and resolve the conflicts in each file with a conflict.
