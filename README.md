@@ -121,8 +121,27 @@ If you need to cancel the merge while you're attempting to resolve merge conflic
 ---
 
 ## Resolving Merge Conflicts
+While Git does a great job of automatically merging branches, as more people contribute to the same repo merge conflicts will start to become a common occurance.  Merge conflicts arise when there are conflicting changes to the same line (or lines) of code.
 
+If you're merging or pulling a branch on your local machine, merge conflicts will be noted in the terminal as git attempts to merge the branches.  However, if the merge conflict is detected during a pull request, it should be noted in the pull request itself.  Some version control systems support resolving merge conflicts via the browser, but you can always resolve the merge conflicts locally.
 
+Assuming we wanted to merge a branch named `feature` into `main`, we would:
+1. `git checkout main`
+2. `git pull main` to ensure our local version of main is up to date
+3. `git checkout feature`
+4. `git pull origin feature` to make sure your local version of the pr branch is up to date.
+5. `git merge main` to attempt to merge main into our feature branch.
+6. Examine the output from git merge and note which files have merge conflicts.
+7. Open your text editor and resolve the conflicts in each file with a conflict.
+8. Stage the merged files and then commit your changes.
+9. `git push origin feature`
+10. Navigate back to the PR in your version control system and verify that it has flagged the merge conflicts as resolved.
+
+When resolving merge conflicts, it's really critical that you're aware of what the conflicting change is and why that change was made.  If the change was made by another developer, it's a good idea to reach out in advance and make sure your proposed changes won't break anything they were working on.
+
+Once you have an understanding of what the conflicting changes are there for, you can make the decision about whether you want to overwrite one set of changes or you want to combine your changes.  No matter the route you go, make sure you take a moment before saving and staging your merged files to ensure there aren't any syntax errors as a result of merging the changes.
+
+If you'd like some additional practice with resolving merge conflicts, I've provided a module on merge conflicts in the `1-Merge-Conflicts` directory.  Take a look at the README there and you can practice resolving some merge conflicts.
 
 #TODO - Add section on standard workflow with links to Gitflow/Trunk workflows
 
