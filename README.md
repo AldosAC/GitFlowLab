@@ -2,14 +2,22 @@
 A simple lab to help people get comfortable with the basic Git workflow.
 
 This is still a work in progress, below is my TODO list:
-#TODO - Add instructions for forking repo
 #TODO - Split Git Ignore section off into a module
 #TODO - Add section on merging
 #TODO - Add module demoing how to revert a commit
 #TODO - Add section on standard workflow with links to Gitflow/Trunk workflows
 
 ## Getting Started
-#TODO - Add instructions for forking repo
+Before we dive in, let's fork this repo so you've got a safe place to experiment with Git.
+From this [GitHub repo](https://github.com/AldosAC/GitFlowLab), click on the "Fork" button on the top-right of the screen.  If prompted to select a destination for the fork, select your GitHub account and proceed.  You should now have your own copy of the repo!  Congratulations, feel free to break anything in there that you want.
+
+Now that you've got your very own fork of the repo, go ahead and clone that down to your local machine.  
+
+To do so: 
+1. Click the "Code" button on the repo and copy the "Clone" link provided.
+2. Open your terminal and navigate to whatever director you want to place the repo in.
+3. Type `git clone <url>` into your terminal, replacing /<url/> with the link you copied in step 1.
+4. cd into your fancy new repo!
 
 ## Git Commands and What They Actually Do
 To start off, why don't we go over the basic git commands and what they actually do.  We're only really going to cover the basic usage of the commands, but be aware there are typically additional flags and options which expand on these.
