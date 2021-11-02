@@ -2,9 +2,6 @@
 A simple lab to help people get comfortable with the basic Git workflow.
 
 This is still a work in progress, below is my TODO list:
-- #TODO - Split Git Ignore section off into a module
-- #TODO - Add section on merging
-- #TODO - Add module demoing how to revert a commit
 - #TODO - Add section on standard workflow with links to Gitflow/Trunk workflows
 
 ## Getting Started
@@ -126,16 +123,17 @@ While Git does a great job of automatically merging branches, as more people con
 If you're merging or pulling a branch on your local machine, merge conflicts will be noted in the terminal as git attempts to merge the branches.  However, if the merge conflict is detected during a pull request, it should be noted in the pull request itself.  Some version control systems support resolving merge conflicts via the browser, but you can always resolve the merge conflicts locally.
 
 Assuming we wanted to merge a branch named `feature` into `main`, we would:
-1. `git checkout main`
-2. `git pull main` to ensure our local version of main is up to date
-3. `git checkout feature`
-4. `git pull origin feature` to make sure your local version of our feature branch is up to date.
-5. `git merge main` to attempt to merge main into our feature branch.
-6. Examine the output from git merge and note which files have merge conflicts.
-7. Open your text editor and resolve the conflicts in each file with a conflict.
-8. Stage the merged files and then commit your changes.
-9. `git push origin feature`
-10. Navigate back to the PR in your version control system and verify that it has flagged the merge conflicts as resolved.
+1. Open the terminal and navigate to our local repo
+2. `git checkout main`
+3. `git pull main` to ensure our local version of main is up to date
+4. `git checkout feature`
+5. `git pull origin feature` to make sure your local version of our feature branch is up to date.
+6. `git merge main` to attempt to merge main into our feature branch.
+7. Examine the output from git merge and note which files have merge conflicts.
+8. Open your text editor and resolve the conflicts in each file with a conflict.
+9. Stage the merged files and then commit your changes.
+10. `git push origin feature`
+11. Navigate back to the PR in your version control system and verify that it has flagged the merge conflicts as resolved.
 
 When resolving merge conflicts, it's really critical that you're aware of what the conflicting change is and why that change was made.  If the change was made by another developer, it's a good idea to reach out in advance and make sure your proposed changes won't break anything they were working on.
 
@@ -144,7 +142,3 @@ Once you have an understanding of what the conflicting changes are there for, yo
 If you'd like some additional practice with resolving merge conflicts, I've provided a module on merge conflicts in the `1-Merge-Conflicts` directory.  Take a look at the README there and you can practice resolving some merge conflicts.
 
 #TODO - Add section on standard workflow with links to Gitflow/Trunk workflows
-
-#TODO - Add module demoing reverting a commit
-
-#TODO - Split Git Ignore section off into a module
