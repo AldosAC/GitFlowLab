@@ -18,6 +18,21 @@ To do so:
 
 ---
 
+## What is Git and why is it relevant to us?
+Great question!  At its core, git is an organization tool that helps us manage changes to our code base.  Git keeps a record of committed changes which we can use to navigate through our code's history.  We could use that to revert bad changes, view the code at a specific point in time, or any number of other uses.  In addition to keeping a commit history, Git also leverages the concept of "branches" to enable us to experiment safely and work in parallel with other developers.  All while providing a quick, simple way for us to merge our work when we're done.  There are certainly other features that Git offers, but that's really the core of what it does for us.  It provides a way for us to manage our code base safely while also trying to make working with other developers as painless as possible.
+
+In a professional environment, we're going to leverage those features in a couple of different ways.  We will...
+* Use commits to track milestones in our work with clear, concise commit messages so our team members can understand the work we've done at a glance.
+* Utilize branches to experiment with changes without interrupting our coworkers who might also be working out of our repo.
+* Treat branches as way to organize our changes, limiting the changes in a branch to a specific feature or fix.
+* Leverage code reviews in pull requests as a way to maintain quality and consistency.
+* Protect sensitive information by adding files we don't want tracked to our .gitignore file
+* Resolve conflicting changes with as little headache as possible by communicating with our team as they occur.
+
+This guide aims to help us get comfortable with that process by diving a little deeper into the common commands we use and what the different components of those commands actually do.
+
+---
+
 ## Git Commands and What They Actually Do
 To start off, why don't we go over the basic git commands and what they actually do.  We're only really going to cover the basic usage of the commands, but be aware there are typically additional flags and options which expand on these.
 
@@ -142,3 +157,11 @@ Once you have an understanding of what the conflicting changes are there for, yo
 If you'd like some additional practice with resolving merge conflicts, I've provided a module on merge conflicts in the `1-Merge-Conflicts` directory.  Take a look at the README there and you can practice resolving some merge conflicts.
 
 #TODO - Add section on standard workflow with links to Gitflow/Trunk workflows
+
+## Helpful Links
+* [Git Cheatsheet: A great cheat sheet from Atlassian, covers most common commands](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
+* [Git - The Simple Guide: Another great, low complexity guide to using Git](https://rogerdudler.github.io/git-guide/)
+* [GitFlow: An overview of the GitFlow branching model](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+* [Trunk-based development: An overview of the trunk based branching model](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+* [Git Fetch and Merge: A great article that does a deep dive on the difference between git fetch and git pull](https://longair.net/blog/2009/04/16/git-fetch-and-merge/)
+* [Git Documentation: Your reference manual to git commands](https://git-scm.com/doc)
