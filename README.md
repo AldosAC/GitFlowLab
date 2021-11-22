@@ -1,8 +1,7 @@
 # GitFlowLab
 A simple lab to help people get comfortable with the basic Git workflow.
 
-This is still a work in progress, below is my TODO list:
-- #TODO - Add section on standard workflow with links to Gitflow/Trunk workflows
+This is still a work in progress and will be updated periodically to finish filling out the content.  Notably, the merge conflict, git ignore, and revert commit modules are currently incomplete.
 
 ## Getting Started
 Before we dive in, let's fork this repo so you've got a safe place to experiment with Git.
@@ -156,7 +155,36 @@ Once you have an understanding of what the conflicting changes are there for, yo
 
 If you'd like some additional practice with resolving merge conflicts, I've provided a module on merge conflicts in the `1-Merge-Conflicts` directory.  Take a look at the README there and you can practice resolving some merge conflicts.
 
-#TODO - Add section on standard workflow with links to Gitflow/Trunk workflows
+---
+
+## Some Common Workflows
+
+First and foremost, it's important to understand that there a many different schools of thought on how best to utilize Git.  Everyone tends to develop personal preferences, but what's really important is identifying the workflow your team utilizes.
+
+There are some common workflows, such as the [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) or [trunk-based](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) models which are worth familiarizing yourself with.
+
+What these models aim to do is create a common process for a team to use as they make changes.  This usually revolves around how branches are designed and managed, where changes should get pushed to, what pull requests and code reviews look like, and what commit/pull request messages should include.
+
+When you join a new team, it can be really helpful to ask these questions:
+* Is there a common workflow we use?
+* When should I be creating a branch, and when should I be merging it?
+* What's our pull request process?
+* What branch should I be basing new branches off of?
+
+Regardless of the model your team uses, there are some common core concepts we'll lean on.
+
+* Any changes you make should be done in a branch.
+* Try not to commit broken code.
+* There's usually a core working branch that all other branches should be based off of (typically main or develop)
+* Do not push changes directly to main or develop
+* Branches should be merged via a pull request.
+* A team member (usually a senior member) should review your code before your pull request is completed.
+* All comments in a pull request should be resolved and any validation tests should be passing before a pull request is completed.
+* If you run into a merge conflict, it's a good idea to communicate with the other developer who made the conflicting change before resolving the conflict.
+
+I'm sure there are some other great ground rules for working as a team with Git!  This should really be taken as a general guideline and not a definitive list.  With that in mind, if you have recommendations or suggestions please feel free to submit a pull request for this very repo!
+
+---
 
 ## Helpful Links
 * [Git Cheatsheet: A great cheat sheet from Atlassian, covers most common commands](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
