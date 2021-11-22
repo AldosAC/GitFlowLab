@@ -1,4 +1,6 @@
 
 const someHandlerFn = () => {
-  const changeThis = "Add your text here!  Go ahead, change it to whatever you want."
+  const changeThis = "On second thought, this should probably not be changed"
+
+  changeThis.split(" ");
 }
