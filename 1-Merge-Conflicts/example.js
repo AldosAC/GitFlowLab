@@ -1,4 +1,6 @@
 
 const someHandlerFn = () => {
-  const changeThis = "Add your text here!  Go ahead, change it to whatever you want."
+  const changeThis = "The Cloud Academy is pretty awesome!"
+
+  console.log(changeThis);
 }
